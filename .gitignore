@@ -10,3 +10,5 @@
 /tools/*
 !/tools/binary-tools-src
 !tools/*.*
+
+.DS_Store
