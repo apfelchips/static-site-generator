@@ -6,6 +6,5 @@
 ## Generate new site in ./dist
 `./build-site.sh`
 
-
 ## Credits
-base upon: https://rgz.ee/ssg.html
+based upon the work of: https://rgz.ee/ssg.html and https://notthebe.ee/src/ssg5
