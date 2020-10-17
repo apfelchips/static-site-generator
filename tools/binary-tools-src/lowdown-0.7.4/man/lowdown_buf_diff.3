@@ -1,0 +1,81 @@
+.\"	$Id: lowdown_buf_diff.3,v 1.3 2020/06/21 08:16:10 kristaps Exp $
+.\"
+.\" Copyright (c) 2018, 2020 Kristaps Dzonsons <kristaps@bsd.lv>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd $Mdocdate: June 21 2020 $
+.Dt LOWDOWN_BUF_DIFF 3
+.Os
+.Sh NAME
+.Nm lowdown_buf
+.Nd parse and diff Markdown buffers into formatted output
+.Sh LIBRARY
+.Lb liblowdown
+.Sh SYNOPSIS
+.In sys/queue.h
+.In stdio.h
+.In lowdown.h
+.Ft void
+.Fo lowdown_buf
+.Fa "const struct lowdown_opts *opts"
+.Fa "const char *btarget"
+.Fa "size_t btargetsz"
+.Fa "const char *otarget"
+.Fa "size_t otargetsz"
+.Fa "char **ret"
+.Fa "size_t *retsz"
+.Fa "struct lowdown_metaq *metaq"
+.Fc
+.Sh DESCRIPTION
+Parses
+.Xr lowdown 5
+buffers
+.Fa btarget
+of size
+.Fa btargetsz
+and
+.Fa otarget
+of size
+.Fa otargetsz
+and produces an edit script in
+.Fa ret
+of size
+.Fa retsz
+according to configurations
+.Fa opts .
+The output format is specified by
+.Fa opts->type .
+If
+.Dv LOWDOWN_METADATA
+is set in
+.Fa opts->feat
+and
+.Fa metaq
+is not
+.Dv NULL ,
+.Fa metaq
+is filled with metadata rendered in the given output format.
+.Pp
+The caller is responsible for freeing
+.Fa ret
+and
+.Fa metaq .
+.Sh SEE ALSO
+.Xr lowdown 3 ,
+.Xr lowdown_metaq_free 3
+.Sh CAVEATS
+This function will call
+.Xr exit 3
+if internal memory allocation fails.
+There is no way to catch this condition.

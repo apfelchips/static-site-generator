@@ -1,0 +1,60 @@
+.\"	$Id: lowdown_doc_parse.3,v 1.15 2020/08/28 10:10:20 kristaps Exp $
+.\"
+.\" Copyright (c) 2017, 2020 Kristaps Dzonsons <kristaps@bsd.lv>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd $Mdocdate: August 28 2020 $
+.Dt LOWDOWN_DOC_PARSE 3
+.Os
+.Sh NAME
+.Nm lowdown_doc_parse
+.Nd parse a Markdown document into an AST
+.Sh LIBRARY
+.Lb liblowdown
+.Sh SYNOPSIS
+.In sys/queue.h
+.In stdio.h
+.In lowdown.h
+.Ft "struct lowdown_node *"
+.Fo lowdown_doc_parse
+.Fa "struct lowdown_doc *doc"
+.Fa "size_t *maxn"
+.Fa "const char *input"
+.Fa "size_t inputsz"
+.Fc
+.Sh DESCRIPTION
+Parse a
+.Xr lowdown 5
+document
+.Fa input
+of length
+.Fa inputsz
+into an AST.
+This function may be invoked multiple times with a single
+.Fa doc
+and different input.
+The returned node is always of type
+.Dv LOWDOWN_ROOT .
+The
+.Fa maxn
+argument, if not
+.Dv NULL ,
+is set to one greater than the highest node identifier of the returned
+tree.
+.Sh RETURN VALUES
+Returns the root of the parse tree.
+The pointer is never
+.Dv NULL .
+.Sh SEE ALSO
+.Xr lowdown 3

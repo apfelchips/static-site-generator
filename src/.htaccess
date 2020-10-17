@@ -1,0 +1,25 @@
+#Security Headers
+Header always append Referrer-Policy "same-origin"
+
+###Globally enabled https://wiki.uberspace.de/webserver:security
+#Header always append Strict-Transport-Security "max-age=15768000"
+#Header always append X-Content-Type-Options "nosniff"
+#Header always append X-Frame-Options "DENY"
+#Header always append X-Xss-Protection "1; mode=block"
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # May be required to access sub directories
+    RewriteBase /
+
+    #exclude Let's Encrypt Directory
+    RewriteRule ^.well-known/.*$ - [L,NC]
+
+    #HTTPS Redirect
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^(.*)$ https://attero.me/$1 [R=301,L]
+
+</IfModule>
+
+# Prevent file browsing
+Options -Indexes -MultiViews

@@ -1,0 +1,385 @@
+configure.local: no (fully automatic configuration)
+
+arc4random: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_ARC4RANDOM  -o test-arc4random tests.c 
+arc4random: cc succeeded
+arc4random: yes 
+
+b64_ntop: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_B64_NTOP  -o test-b64_ntop tests.c 
+Undefined symbols for architecture x86_64:
+  "_res_9_b64_ntop", referenced from:
+      _main in tests-46a2de.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+b64_ntop: cc failed with 0 (retrying)
+b64_ntop: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_B64_NTOP  -o test-b64_ntop tests.c -lresolv
+b64_ntop: cc succeeded
+b64_ntop: yes (with -lresolv)
+
+capsicum: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_CAPSICUM  -o test-capsicum tests.c 
+tests.c:33:10: fatal error: 'sys/capsicum.h' file not found
+#include <sys/capsicum.h>
+         ^~~~~~~~~~~~~~~~
+1 error generated.
+capsicum: cc failed with 1
+
+crypt: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_CRYPT  -o test-crypt tests.c 
+crypt: cc succeeded
+crypt: yes 
+
+endian_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_ENDIAN_H  -o test-endian_h tests.c 
+tests.c:70:10: fatal error: 'endian.h' file not found
+#include <endian.h>
+         ^~~~~~~~~~
+1 error generated.
+endian_h: cc failed with 1
+
+err: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_ERR  -o test-err tests.c 
+err: cc succeeded
+err: yes 
+
+explicit_bzero: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_EXPLICIT_BZERO  -o test-explicit_bzero tests.c 
+tests.c:115:2: error: implicit declaration of function 'explicit_bzero' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        explicit_bzero(foo, sizeof(foo));
+        ^
+tests.c:115:2: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+2 errors generated.
+explicit_bzero: cc failed with 1
+
+fts: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_FTS  -o test-fts tests.c 
+tests.c:132:20: error: use of undeclared identifier 'NULL'
+        argv[1] = (char *)NULL;
+                          ^
+tests.c:135:34: error: use of undeclared identifier 'NULL'
+            FTS_PHYSICAL | FTS_NOCHDIR, NULL);
+                                        ^
+tests.c:137:14: error: use of undeclared identifier 'NULL'
+        if (ftsp == NULL)
+                    ^
+tests.c:142:15: error: use of undeclared identifier 'NULL'
+        if (entry == NULL)
+                     ^
+4 errors generated.
+fts: cc failed with 1
+
+getexecname: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_GETEXECNAME  -o test-getexecname tests.c 
+tests.c:162:13: error: implicit declaration of function 'getexecname' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        progname = getexecname();
+                   ^
+tests.c:162:13: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+tests.c:162:11: error: incompatible integer to pointer conversion assigning to 'const char *' from 'int' [-Werror,-Wint-conversion]
+        progname = getexecname();
+                 ^ ~~~~~~~~~~~~~
+3 errors generated.
+getexecname: cc failed with 1
+
+getprogname: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_GETPROGNAME  -o test-getprogname tests.c 
+getprogname: cc succeeded
+getprogname: yes 
+
+INFTIM: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_INFTIM  -o test-INFTIM tests.c 
+tests.c:189:48: error: use of undeclared identifier 'INFTIM'
+        printf("INFTIM is defined to be %ld\n", (long)INFTIM);
+                                                      ^
+1 error generated.
+INFTIM: cc failed with 1
+
+lib_socket: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_LIB_SOCKET  -o test-lib_socket tests.c 
+lib_socket: cc succeeded
+lib_socket: yes 
+
+md5: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MD5  -o test-md5 tests.c 
+tests.c:207:10: fatal error: 'md5.h' file not found
+#include <md5.h>
+         ^~~~~~~
+1 error generated.
+md5: cc failed with 0 (retrying)
+md5: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MD5  -o test-md5 tests.c -lmd
+tests.c:207:10: fatal error: 'md5.h' file not found
+#include <md5.h>
+         ^~~~~~~
+1 error generated.
+md5: cc failed with 1
+
+memmem: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MEMMEM  -o test-memmem tests.c 
+memmem: cc succeeded
+memmem: yes 
+
+memrchr: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MEMRCHR  -o test-memrchr tests.c 
+tests.c:244:8: error: implicit declaration of function 'memrchr' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        res = memrchr(buf, 'a', strlen(buf));
+              ^
+tests.c:244:8: note: did you mean 'memchr'?
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/string.h:70:7: note: 'memchr' declared here
+void    *memchr(const void *__s, int __c, size_t __n);
+         ^
+tests.c:244:8: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+        res = memrchr(buf, 'a', strlen(buf));
+              ^
+tests.c:244:6: error: incompatible integer to pointer conversion assigning to 'void *' from 'int' [-Werror,-Wint-conversion]
+        res = memrchr(buf, 'a', strlen(buf));
+            ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3 errors generated.
+memrchr: cc failed with 1
+
+memset_s: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MEMSET_S  -o test-memset_s tests.c 
+memset_s: cc succeeded
+memset_s: yes 
+
+mkfifoat: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MKFIFOAT  -o test-mkfifoat tests.c 
+tests.c:263:2: error: implicit declaration of function 'mkfifoat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        mkfifoat(AT_FDCWD, "this/path/should/not/exist", 0600);
+        ^
+tests.c:263:2: note: did you mean 'mkfifo'?
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/stat.h:372:9: note: 'mkfifo' declared here
+int     mkfifo(const char *, mode_t);
+        ^
+tests.c:263:2: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+        mkfifoat(AT_FDCWD, "this/path/should/not/exist", 0600);
+        ^
+2 errors generated.
+mkfifoat: cc failed with 1
+
+mknodat: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_MKNODAT  -o test-mknodat tests.c 
+tests.c:272:2: error: implicit declaration of function 'mknodat' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        mknodat(AT_FDCWD, "this/path/should/not/exist", S_IFIFO | 0600, 0);
+        ^
+tests.c:272:2: note: did you mean 'mknod'?
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/stat.h:374:9: note: 'mknod' declared here
+int     mknod(const char *, mode_t, dev_t);
+        ^
+tests.c:272:2: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+        mknodat(AT_FDCWD, "this/path/should/not/exist", S_IFIFO | 0600, 0);
+        ^
+2 errors generated.
+mknodat: cc failed with 1
+
+osbyteorder_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_OSBYTEORDER_H  -o test-osbyteorder_h tests.c 
+osbyteorder_h: cc succeeded
+osbyteorder_h: yes 
+
+PATH_MAX: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_PATH_MAX  -o test-PATH_MAX tests.c 
+PATH_MAX: cc succeeded
+PATH_MAX: yes 
+
+pledge: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_PLEDGE  -o test-pledge tests.c 
+tests.c:323:11: error: implicit declaration of function 'pledge' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        return !!pledge("stdio", NULL);
+                 ^
+tests.c:323:11: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+2 errors generated.
+pledge: cc failed with 1
+
+program_invocation_short_name: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_PROGRAM_INVOCATION_SHORT_NAME  -o test-program_invocation_short_name tests.c 
+tests.c:334:10: error: use of undeclared identifier 'program_invocation_short_name'
+        return !program_invocation_short_name;
+                ^
+1 error generated.
+program_invocation_short_name: cc failed with 1
+
+readpassphrase: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_READPASSPHRASE  -o test-readpassphrase tests.c 
+readpassphrase: cc succeeded
+readpassphrase: yes 
+
+reallocarray: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_REALLOCARRAY  -o test-reallocarray tests.c 
+tests.c:356:10: error: implicit declaration of function 'reallocarray' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        return !reallocarray(NULL, 2, 2);
+                ^
+tests.c:356:10: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+2 errors generated.
+reallocarray: cc failed with 1
+
+recallocarray: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_RECALLOCARRAY  -o test-recallocarray tests.c 
+tests.c:365:10: error: implicit declaration of function 'recallocarray' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        return !recallocarray(NULL, 0, 2, 2);
+                ^
+tests.c:365:10: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+2 errors generated.
+recallocarray: cc failed with 1
+
+sandbox_init: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SANDBOX_INIT -Wno-deprecated -o test-sandbox_init tests.c 
+sandbox_init: cc succeeded
+sandbox_init: yes 
+
+seccomp-filter: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SECCOMP_FILTER  -o test-seccomp-filter tests.c 
+tests.c:384:10: fatal error: 'sys/prctl.h' file not found
+#include <sys/prctl.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+seccomp-filter: cc failed with 1
+
+setresgid: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SETRESGID  -o test-setresgid tests.c 
+tests.c:404:9: error: implicit declaration of function 'setresgid' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        return setresgid(-1, -1, -1) == -1;
+               ^
+tests.c:404:9: note: did you mean 'setregid'?
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h:593:6: note: 'setregid' declared here
+int      setregid(gid_t, gid_t) __DARWIN_ALIAS(setregid);
+         ^
+tests.c:404:9: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+        return setresgid(-1, -1, -1) == -1;
+               ^
+2 errors generated.
+setresgid: cc failed with 1
+
+setresuid: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SETRESUID  -o test-setresuid tests.c 
+tests.c:415:9: error: implicit declaration of function 'setresuid' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        return setresuid(-1, -1, -1) == -1;
+               ^
+tests.c:415:9: note: did you mean 'setreuid'?
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/unistd.h:595:6: note: 'setreuid' declared here
+int      setreuid(uid_t, uid_t) __DARWIN_ALIAS(setreuid);
+         ^
+tests.c:415:9: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+        return setresuid(-1, -1, -1) == -1;
+               ^
+2 errors generated.
+setresuid: cc failed with 1
+
+sha2_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SHA2_H  -o test-sha2_h tests.c 
+tests.c:420:10: fatal error: 'sha2.h' file not found
+#include <sha2.h>
+         ^~~~~~~~
+1 error generated.
+sha2_h: cc failed with 1
+
+SOCK_NONBLOCK: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SOCK_NONBLOCK  -o test-SOCK_NONBLOCK tests.c 
+tests.c:445:34: error: use of undeclared identifier 'SOCK_NONBLOCK'
+        socketpair(AF_UNIX, SOCK_STREAM|SOCK_NONBLOCK, 0, fd);
+                                        ^
+1 error generated.
+SOCK_NONBLOCK: cc failed with 1
+
+static: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_STATIC  -o test-static tests.c -static
+ld: library not found for -lcrt0.o
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+static: cc failed with 1
+
+strlcat: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_STRLCAT  -o test-strlcat tests.c 
+strlcat: cc succeeded
+strlcat: yes 
+
+strlcpy: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_STRLCPY  -o test-strlcpy tests.c 
+strlcpy: cc succeeded
+strlcpy: yes 
+
+strndup: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_STRNDUP  -o test-strndup tests.c 
+strndup: cc succeeded
+strndup: yes 
+
+strnlen: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_STRNLEN  -o test-strnlen tests.c 
+strnlen: cc succeeded
+strnlen: yes 
+
+strtonum: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_STRTONUM  -o test-strtonum tests.c 
+tests.c:530:6: error: implicit declaration of function 'strtonum' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        if (strtonum("1", 0, 2, &errstr) != 1)
+            ^
+tests.c:530:6: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+2 errors generated.
+strtonum: cc failed with 1
+
+sys_byteorder_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SYS_BYTEORDER_H  -o test-sys_byteorder_h tests.c 
+tests.c:550:10: fatal error: 'sys/byteorder.h' file not found
+#include <sys/byteorder.h>
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+sys_byteorder_h: cc failed with 1
+
+sys_endian_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SYS_ENDIAN_H  -o test-sys_endian_h tests.c 
+tests.c:559:10: fatal error: 'sys/endian.h' file not found
+#include <sys/endian.h>
+         ^~~~~~~~~~~~~~
+1 error generated.
+sys_endian_h: cc failed with 1
+
+sys_mkdev_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SYS_MKDEV_H  -o test-sys_mkdev_h tests.c 
+tests.c:569:10: fatal error: 'sys/mkdev.h' file not found
+#include <sys/mkdev.h>
+         ^~~~~~~~~~~~~
+1 error generated.
+sys_mkdev_h: cc failed with 1
+
+sys_sysmacros_h: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SYS_SYSMACROS_H  -o test-sys_sysmacros_h tests.c 
+tests.c:608:10: fatal error: 'sys/sysmacros.h' file not found
+#include <sys/sysmacros.h>
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+sys_sysmacros_h: cc failed with 1
+
+sys_queue: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SYS_QUEUE  -o test-sys_queue tests.c 
+sys_queue: cc succeeded
+sys_queue: yes 
+
+sys_tree: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_SYS_TREE  -o test-sys_tree tests.c 
+tests.c:617:10: fatal error: 'sys/tree.h' file not found
+#include <sys/tree.h>
+         ^~~~~~~~~~~~
+1 error generated.
+sys_tree: cc failed with 1
+
+unveil: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_UNVEIL  -o test-unveil tests.c 
+tests.c:662:15: error: implicit declaration of function 'unveil' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+        return -1 != unveil(NULL, NULL);
+                     ^
+tests.c:662:15: error: this function declaration is not a prototype [-Werror,-Wstrict-prototypes]
+2 errors generated.
+unveil: cc failed with 1
+
+WAIT_ANY: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST_WAIT_ANY  -o test-WAIT_ANY tests.c 
+WAIT_ANY: cc succeeded
+WAIT_ANY: yes 
+
+__progname: testing...
+cc  -g -W -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wwrite-strings -Wno-unused-parameter  -Wno-unused -Werror -DTEST___PROGNAME  -o test-__progname tests.c 
+__progname: cc succeeded
+__progname: yes 
+
+config.h: written
+Makefile.configure: written

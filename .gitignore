@@ -1,0 +1,12 @@
+/*
+!/src
+!/tools
+!/.env.example
+!/build-site.sh
+!/Readme.md
+!/.editorconfig
+!/.gitignore
+
+/tools/*
+!/tools/binary-tools-src
+!tools/*.*

@@ -1,0 +1,61 @@
+.\"	$Id: lowdown_nroff_new.3,v 1.5 2020/08/29 08:57:24 kristaps Exp $
+.\"
+.\" Copyright (c) 2017, 2020 Kristaps Dzonsons <kristaps@bsd.lv>
+.\"
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\"
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\"
+.Dd $Mdocdate: August 29 2020 $
+.Dt LOWDOWN_NROFF_NEW 3
+.Os
+.Sh NAME
+.Nm lowdown_nroff_new
+.Nd allocate a roff renderer for lowdown documents
+.Sh LIBRARY
+.Lb liblowdown
+.Sh SYNOPSIS
+.In sys/queue.h
+.In stdio.h
+.In lowdown.h
+.Ft void *
+.Fo lowdown_nroff_new
+.Fa "const struct lowdown_opts *opts"
+.Fc
+.Sh DESCRIPTION
+Allocates a roff renderer (using the
+.Ar man
+or
+.Ar ms
+macros) using the flags in
+.Fa opts ,
+which may be
+.Dv NULL
+in which case all fields are zero and the renderer type is
+.Dv LOWDOWN_MS .
+If the type is not
+.Dv LOWDOWN_MAN
+or
+.Dv LOWDOWN_MS ,
+it defaults to
+.Dv LOWDOWN_MS .
+The renderer must be freed with a call to
+.Xr lowdown_nroff_free 3 .
+The returned pointer may be used with multiple invocations of
+.Xr lowdown_nroff_rndr 3 .
+.Sh RETURN VALUES
+Always returns a valid pointer.
+.Sh SEE ALSO
+.Xr lowdown 3 ,
+.Xr lowdown_nroff_free 3 ,
+.Xr lowdown_nroff_rndr 3 ,
+.Xr groff_ms 7 ,
+.Xr man 7
