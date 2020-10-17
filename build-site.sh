@@ -10,7 +10,7 @@ _TOOLS_DIR="${TOOLS_DIR-$(realpath $(dirname $0)/tools)}"
 export PATH="$_TOOLS_DIR:$PATH"
 
 
-_DST_DIR="${DST_DIR-$_SRC_DIR/../www}"
+_DST_DIR="${DST_DIR-$_SRC_DIR/../dist}"
 _SITE_NAME="${SITE_NAME:-Blog}"
 _SITE_URL="${SITE_URL:-http://localhost:8080}"
 
